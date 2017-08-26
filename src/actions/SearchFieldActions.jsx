@@ -11,7 +11,6 @@ export function fetchVideoData(searchTerm) {
     return (dispatch) => {
         dispatch(requestVideoData());
 
-        // const fetchData = convertSearchTermToFetchable(searchTerm);
         const youTubeAPIURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchTerm}&key=${YOUTUBE_API_KEY}`;
 
         return fetch(youTubeAPIURL)
@@ -24,15 +23,6 @@ export function fetchVideoData(searchTerm) {
         )
     }
 }
-
-function convertSearchTermToFetchable(term) {
-    return {
-        part: 'snippet',
-        maxResults: 25,
-        q: term,
-        key: YOUTUBE_API_KEY
-    };
-};
 
 export function requestVideoData() {
     return { type: REQUEST_VIDEO_DATA };
