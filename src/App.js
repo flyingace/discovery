@@ -8,13 +8,14 @@ import VideoList from './components/VideoList';
 import './App.css';
 
 class App extends Component {
+
     render() {
         return (
             <div className="main_wrapper">
-                <Player/>
+                <Player videoId={this.props.currentVideo.videoId} videoTitle={this.props.currentVideo.videoTitle}/>
                 <SearchField fetchVideo={this.props.fetchVideoData}/>
                 <SortingMenu/>
-                <VideoList/>
+                <VideoList videoData={this.props.videoData} selectVideo={this.props.updateCurrentVideo}/>
             </div>
         );
     }
