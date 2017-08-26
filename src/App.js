@@ -9,10 +9,8 @@ import './App.css';
 
 class App extends Component {
     render() {
-        console.log(this.props.fetchVideoData);
         return (
             <div className="main_wrapper">
-                {this.props.children}
                 <Player/>
                 <SearchField fetchVideo={this.props.fetchVideoData}/>
                 <SortingMenu/>
@@ -23,5 +21,3 @@ class App extends Component {
 }
 
 export default App;
-
-
