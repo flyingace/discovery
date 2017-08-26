@@ -15,6 +15,10 @@ class SearchFieldActions extends React.Component {
 
     state = {};
 
+    onSearchClick = () => {
+        this.props.fetchVideo(this.searchInput.value);
+    };
+
     componentDidMount() {
     }
 
@@ -24,8 +28,13 @@ class SearchFieldActions extends React.Component {
     render() {
         return (
             <Form inline>
-                <FormControl/>
-                <Button onClick={() => { this.props.fetchVideo('monkeys') }}>Search Videos</Button>
+                <FormControl
+                    componentClass="input"
+                    placeholder="Search For Videos"
+                    inputRef={(ref) => {this.searchInput = ref}}
+                    //TODO: If you have time, validate entry isn't empty
+                />
+                <Button onClick={this.onSearchClick}>Search Videos</Button>
             </Form>
         );
     }
