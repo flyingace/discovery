@@ -2,28 +2,15 @@ import React from 'react';
 import { Button, Form, FormControl } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-class SearchFieldActions extends React.Component {
-    constructor() {
-        super();
-    };
+class AppActions extends React.Component {
 
     static propTypes = {
         fetchVideo: PropTypes.func
     };
 
-    static defaultProps = {};
-
-    state = {};
-
     onSearchClick = () => {
         this.props.fetchVideo(this.searchInput.value);
     };
-
-    componentDidMount() {
-    }
-
-    componentWillUnmount() {
-    }
 
     render() {
         return (
@@ -32,6 +19,7 @@ class SearchFieldActions extends React.Component {
                     componentClass="input"
                     placeholder="Search For Videos"
                     inputRef={(ref) => {this.searchInput = ref}}
+                    defaultValue="Dogs"
                     //TODO: If you have time, validate entry isn't empty
                 />
                 <Button onClick={this.onSearchClick}>Search Videos</Button>
@@ -40,4 +28,4 @@ class SearchFieldActions extends React.Component {
     }
 }
 
-export default SearchFieldActions;
+export default AppActions;

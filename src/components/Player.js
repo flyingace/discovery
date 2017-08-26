@@ -3,21 +3,16 @@ import PropTypes from 'prop-types';
 import YouTube from 'react-youtube';
 
 class Player extends React.Component {
-    constructor() {
-        super();
+
+    static propTypes = {
+        videoId: PropTypes.string,
+        videoTitle: PropTypes.string
     };
 
-    static propTypes = {};
-
-    static defaultProps = {};
-
-    state = {};
-
-    componentDidMount() {
-    }
-
-    componentWillUnmount() {
-    }
+    static defaultProps = {
+        videoId: '2g811Eo7K8U',
+        videoTitle: 'Video Title'
+    };
 
     _onReady(event) {
         // access to player in all event handlers via event.target
@@ -26,10 +21,15 @@ class Player extends React.Component {
 
     render() {
         return (
-            <YouTube
-                videoId="2g811Eo7K8U"
-                onReady={this._onReady}
-            />
+            <div className='player'>
+                <div className='video-container'>
+                    <YouTube
+                        videoId={this.props.videoId}
+                        onReady={this._onReady}
+                    />
+                </div>
+                <h2>{this.props.videoTitle}</h2>
+            </div>
         );
     }
 }

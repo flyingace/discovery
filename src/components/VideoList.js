@@ -1,30 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ListGroup, ListGroupItem } from 'react-bootstrap'
 
 class VideoList extends React.Component {
-    constructor() {
-        super();
+
+    static propTypes = {
+        videoData: PropTypes.object
     };
 
-    static propTypes = {};
+    onListItemClicked = (item) => {
+        const selectedVideo = {
+            videoId: item.id.videoId,
+            videoTitle: item.snippet.title
+        };
+        this.props.selectVideo(selectedVideo);
+    };
 
-    static defaultProps = {};
-
-    state = {};
-
-    componentDidMount() {
-    }
-
-    componentWillUnmount() {
-    }
+    renderGroupItems = () => {
+        return this.props.videoData.items &&
+            this.props.videoData.items.map((item, idx) => {
+                return (
+                    <ListGroupItem header={item.snippet.title}
+                                   key={'vid' + idx.toString()}
+                                   onClick={() => {
+                                       this.onListItemClicked(item)
+                                   }}>
+                        <img src={item.snippet.thumbnails.default.url} alt='Video Thumbnail'/>
+                        {item.snippet.description}
+                    </ListGroupItem>
+                )
+            })
+    };
 
     render() {
         return (
-            <div className="video_list">
-                <ul>
-                    <li>Video List</li>
-                </ul>
-            </div>
+            <ListGroup>
+                {this.renderGroupItems()}
+            </ListGroup>
         );
     }
 }
