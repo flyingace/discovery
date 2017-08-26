@@ -2,12 +2,14 @@ import React from 'react';
 import { Button, Form, FormControl } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-class SearchField extends React.Component {
+class SearchFieldActions extends React.Component {
     constructor() {
         super();
     };
 
-    static propTypes = {};
+    static propTypes = {
+        fetchVideo: PropTypes.func
+    };
 
     static defaultProps = {};
 
@@ -23,10 +25,10 @@ class SearchField extends React.Component {
         return (
             <Form inline>
                 <FormControl/>
-                <Button>Search Videos</Button>
+                <Button onClick={() => { this.props.fetchVideo('monkeys') }}>Search Videos</Button>
             </Form>
         );
     }
 }
 
-export default SearchField;
+export default SearchFieldActions;
