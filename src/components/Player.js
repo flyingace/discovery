@@ -11,7 +11,7 @@ class Player extends React.Component {
 
     static defaultProps = {
         videoId: '2g811Eo7K8U',
-        videoTitle: 'Video Title'
+        videoTitle: 'Cat Falling'
     };
 
     _onReady(event) {

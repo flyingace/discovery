@@ -8,6 +8,12 @@ class VideoList extends React.Component {
         videoData: PropTypes.object
     };
 
+    componentWillReceiveProps(nextProps) {
+        if (this.props.videoData !== nextProps.videoData && nextProps.videoData.items) {
+            this.onListItemClicked(nextProps.videoData.items[0]);
+        }
+    }
+
     onListItemClicked = (item) => {
         const selectedVideo = {
             videoId: item.id.videoId,
@@ -16,7 +22,7 @@ class VideoList extends React.Component {
         window.scrollTo(0,0);
         this.props.selectVideo(selectedVideo);
     };
-
+    
     renderGroupItems = () => {
         return this.props.videoData.items &&
             this.props.videoData.items.map((item, idx) => {
