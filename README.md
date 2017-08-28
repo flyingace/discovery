@@ -1,4 +1,4 @@
-#Assignment Discovery
+# Assignment Discovery
 
 This application will allow a user to 
 1. Search YouTube for videos by keyword
@@ -6,7 +6,10 @@ This application will allow a user to
 3. Select a video from that list to load and    watch it in a player at the top of the page
 4. Sort the videos by Title (ascending or descending) and Data Uploaded (ascending or descending)
 
-###Installation instructions
+### View without installation
+This app can also be viewed at https://flyingace.github.io/discovery/.
+
+### Installation instructions
 1. Clone the repo found at https://github.com/flyingace/discovery using 
 ```
 git clone git@github.com:flyingace/discovery.git
@@ -21,14 +24,14 @@ npm run start
 ```
 3. This should launch the project in your browser at http://localhost:3000
 
-###Project Notes
-####Packages Used
+### Project Notes
+#### Packages Used
 In addition to more commonly used React-related packages such as Redux and Lodash, this project was created using 
 1. _create-react-app,_ For boilerplate files and directory structure 
 2. _react-bootstrap_ For simple styled components (e.g., form elements, stylized list items)
 3. _react-youtube_ To simplify the process of using the YouTube player as a component
 
-####Differences from original assignment
+#### Differences from original assignment
 This implementation diverges slightly from the project's stated requirements. Some of the requirements were unclear to me, and given the timeline I made some assumptions and additions in order to try to meet the overall requirements of the assignment.
 
 1. The app is contained on a single page. Rather than load a second page when a video was selected the video is loaded into the player at the top of the page.
