@@ -25,6 +25,7 @@ class VideoList extends React.Component {
                                    onClick={() => {
                                        this.onListItemClicked(item)
                                    }}>
+                        Published On: {item.snippet.publishedAt}<br/>
                         <img src={item.snippet.thumbnails.default.url} alt='Video Thumbnail'/>
                         {item.snippet.description}
                     </ListGroupItem>

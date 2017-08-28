@@ -3,29 +3,19 @@ import PropTypes from 'prop-types';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
 
 class SortingMenu extends React.Component {
-    constructor() {
-        super();
+
+    onSortSelect = (criteria) => {
+        this.props.sortVideoData(criteria);
     };
 
-    static propTypes = {};
-
-    static defaultProps = {};
-
-    state = {};
-
-    componentDidMount() {
-    }
-
-    componentWillUnmount() {
-    }
-
     render() {
+        //TODO: Some logic could be added to disable the button if there are no videos to sort
         return (
-            <DropdownButton title="Sort by..." id="sort-by">
-                <MenuItem>Popularity</MenuItem>
-                <MenuItem>Newest First</MenuItem>
-                <MenuItem>Oldest First</MenuItem>
-                <MenuItem>Title</MenuItem>
+            <DropdownButton title="Sort by..." id="sort-by" pullRight onSelect={this.onSortSelect}>
+                <MenuItem eventKey={'titleAsc'}>Title (A-Z)</MenuItem>
+                <MenuItem eventKey={'titleDsc'}>Title (Z-A)</MenuItem>
+                <MenuItem eventKey={'newest'}>Newest First</MenuItem>
+                <MenuItem eventKey={'oldest'}>Oldest First</MenuItem>
             </DropdownButton>
         );
     }
