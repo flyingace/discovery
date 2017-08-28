@@ -13,6 +13,7 @@ class VideoList extends React.Component {
             videoId: item.id.videoId,
             videoTitle: item.snippet.title
         };
+        window.scrollTo(0,0);
         this.props.selectVideo(selectedVideo);
     };
 
@@ -25,9 +26,10 @@ class VideoList extends React.Component {
                                    onClick={() => {
                                        this.onListItemClicked(item)
                                    }}>
-                        Published On: {item.snippet.publishedAt}<br/>
-                        <img src={item.snippet.thumbnails.default.url} alt='Video Thumbnail'/>
-                        {item.snippet.description}
+                        <img src={item.snippet.thumbnails.default.url} alt={`Thumbnail: ${item.snippet.title}`}
+                             className="video-thumbnail"/>
+                        <span className="video-description">{item.snippet.description}</span>
+                        <span className="video-added-date">Published On: {item.snippet.publishedAt}</span>
                     </ListGroupItem>
                 )
             })

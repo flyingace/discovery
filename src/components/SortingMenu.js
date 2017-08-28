@@ -4,6 +4,11 @@ import { DropdownButton, MenuItem } from 'react-bootstrap';
 
 class SortingMenu extends React.Component {
 
+    static propTypes = {
+        sortVideoData: PropTypes.func
+    };
+
+
     onSortSelect = (criteria) => {
         this.props.sortVideoData(criteria);
     };
