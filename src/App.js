@@ -15,7 +15,7 @@ class App extends Component {
                 <Player videoId={this.props.currentVideo.videoId} videoTitle={this.props.currentVideo.videoTitle}/>
                 <div className='form-elements'>
                     <SearchField fetchVideo={this.props.fetchVideoData}/>
-                    <SortingMenu/>
+                    <SortingMenu sortVideoData = {this.props.sortVideos} />
                 </div>
                 <VideoList videoData={this.props.videoData} selectVideo={this.props.updateCurrentVideo}/>
             </div>
